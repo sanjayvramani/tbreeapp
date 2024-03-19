@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tbreeapp/features/dashboard/dashboard_page.dart';
+import 'package:tbreeapp/services/navigator_service.dart';
+
+import '../../services/locator_service.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});
@@ -28,7 +32,9 @@ class _OtpPageState extends State<OtpPage> {
 
             OutlinedButton(
               
-              onPressed: (){}, child: const Text('Submit'))
+              onPressed: (){
+                locator<NavigatorService>().pushAndRemoveUntil(widget: const DashboardPage(), predict: (Route<dynamic> route) => true);
+              }, child: const Text('Submit'))
           ]
         )
     ));

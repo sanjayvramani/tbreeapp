@@ -1,4 +1,7 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 
 typedef RoutePredicate = bool Function(Route<dynamic> route);
@@ -75,8 +78,8 @@ class NavigatorService
 
   /// This function is used to push new route in navigator, and then remove all the previous routes until the `predicate` returns true.
   Future<T?> pushAndRemoveUntil<T extends Object?>(
-      {required Route<T> newRoute, required RoutePredicate predict}) {
-    return navigatorKey.currentState!.pushAndRemoveUntil(newRoute, predict);
+      {required Widget widget, required RoutePredicate predict}) {
+    return navigatorKey.currentState!.pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>widget), predict);
   }
 
   /// This function is used to `context` of application.

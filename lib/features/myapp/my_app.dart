@@ -1,10 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tbreeapp/services/locator_service.dart';
-import 'package:tbreeapp/services/navigator_service.dart';
-
+import '../../services/locator_service.dart';
+import '../../services/navigator_service.dart';
 import '../homepage/home_page.dart';
 
 class MyApp extends StatelessWidget {
