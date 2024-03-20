@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tbreeapp/features/contact_us/contact_us_page.dart';
 import 'package:tbreeapp/features/elite_program/elite_program_widget.dart';
+import 'package:tbreeapp/features/gifts/gifts_page.dart';
 import 'package:tbreeapp/features/setting_page/setting_page.dart';
 import 'package:tbreeapp/features/support_page/support_page.dart';
 import 'package:tbreeapp/services/navigator_service.dart';
@@ -77,6 +78,11 @@ class _DashboardPageState extends State<DashboardPage> {
                       {
                         locator<NavigatorService>().navigatePush(widget: const EliteProgramPage());
                       }
+                      else if(index==3)
+                      {
+                        locator<NavigatorService>().navigatePush(widget: const GiftsPage());
+                      }
+
                     },
                     child: SizedBox(
                     height: 100,
