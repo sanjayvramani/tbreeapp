@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        scaffoldBackgroundColor: Colors.lightBlue,
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           backgroundColor: Colors.lightBlue,
