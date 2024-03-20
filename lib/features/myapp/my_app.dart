@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tbreeapp/features/dashboard/dashboard_page.dart';
 import '../../services/locator_service.dart';
 import '../../services/navigator_service.dart';
 import '../homepage/home_page.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
+      //home: const DashboardPage(),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
       navigatorKey: locator<NavigatorService>().navigatorKey,
     );

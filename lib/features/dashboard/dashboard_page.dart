@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tbreeapp/features/elite_program/elite_program_widget.dart';
 import 'package:tbreeapp/features/setting_page/setting_page.dart';
 import 'package:tbreeapp/services/navigator_service.dart';
 
@@ -62,31 +63,38 @@ class _DashboardPageState extends State<DashboardPage> {
                 physics: const NeverScrollableScrollPhysics(),
                 children: List.generate(lstSection.length , (index) {
                   final model = lstSection[index];
-                  return SizedBox(
-                  height: 100,
-                  child:Container(
-                    padding: const EdgeInsets.all(16.0),
-                  decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                          color: model.backgroundcolor
-                        ),
-                  child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(model.title,style: TextStyle(fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w400),)),
-                            const SizedBox(height: 8.0,),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: CircleAvatar(child: model.icon,
-                            radius: 16.0,
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.black,),
-                          )
-                        ],
-                      )
-                ));
+                  return GestureDetector(
+                    onTap: (){
+                      if(index==1)
+                      {
+                        locator<NavigatorService>().navigatePush(widget: const EliteProgramPage());
+                      }
+                    },
+                    child: SizedBox(
+                    height: 100,
+                    child:Container(
+                      padding: const EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                            color: model.backgroundcolor
+                          ),
+                    child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(model.title,style: TextStyle(fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w400),)),
+                              const SizedBox(height: 8.0,),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: CircleAvatar(radius: 16.0,
+                              backgroundColor: Colors.white,
+                              foregroundColor: Colors.black,child: model.icon,),
+                            )
+                          ],
+                        )
+                                    )),
+                  );
                 }),),
               const SizedBox(height: 16.0,),
               Text('Weekly Deals',style: TextStyle(fontSize: 18.sp),),
