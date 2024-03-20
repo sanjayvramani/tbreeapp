@@ -24,7 +24,6 @@ class _EliteProgramPageState extends State<EliteProgramPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
         title: const Text('Shobha Elite'),
       ),
       body: Padding(padding: const EdgeInsets.all(8.0),

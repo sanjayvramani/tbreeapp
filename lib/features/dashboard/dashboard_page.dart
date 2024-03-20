@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tbreeapp/features/elite_program/elite_program_widget.dart';
 import 'package:tbreeapp/features/setting_page/setting_page.dart';
+import 'package:tbreeapp/features/support_page/support_page.dart';
 import 'package:tbreeapp/services/navigator_service.dart';
 
 import '../../services/locator_service.dart';
@@ -15,6 +16,8 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+
+  int _currentIndex = 0;
 
   final List<DashboardSectionItemModel> lstSection = [
     DashboardSectionItemModel(title: 'SUPPORT', 
@@ -38,7 +41,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
+        elevation: 5.0,
       ),
       body: Container(
         padding: const EdgeInsets.all(8.0),
@@ -65,7 +68,11 @@ class _DashboardPageState extends State<DashboardPage> {
                   final model = lstSection[index];
                   return GestureDetector(
                     onTap: (){
-                      if(index==1)
+                      if(index==0)
+                      {
+                        locator<NavigatorService>().navigatePush(widget: const SupportPage());
+                      }
+                      else if(index==1)
                       {
                         locator<NavigatorService>().navigatePush(widget: const EliteProgramPage());
                       }
@@ -110,11 +117,21 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        
+        currentIndex: _currentIndex,
         onTap: (index){
+          
           if(index==3)
           {
             locator<NavigatorService>().navigatePush(widget: const SettingPage());
+          }
+          else
+          {
+            if(_currentIndex!=index)
+          {
+            setState(() {
+              _currentIndex = index;
+            });
+          }
           }
         },
         items: const [

@@ -15,7 +15,6 @@ class SettingPage extends StatelessWidget {
       backgroundColor: Colors.lightBlue,
       appBar: AppBar(
         title: const Text('Settings'),
-        backgroundColor: Colors.lightBlue,
       ),
       body:  Padding(
         padding:  const EdgeInsets.all(16.0),
