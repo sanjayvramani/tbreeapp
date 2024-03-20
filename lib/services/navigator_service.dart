@@ -1,7 +1,5 @@
-import 'dart:js';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 
 typedef RoutePredicate = bool Function(Route<dynamic> route);

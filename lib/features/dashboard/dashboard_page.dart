@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tbreeapp/features/setting_page/setting_page.dart';
+import 'package:tbreeapp/services/navigator_service.dart';
 
+import '../../services/locator_service.dart';
 import 'model/dashboard_section_item_model.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -14,20 +17,20 @@ class _DashboardPageState extends State<DashboardPage> {
 
   final List<DashboardSectionItemModel> lstSection = [
     DashboardSectionItemModel(title: 'SUPPORT', 
-    icon: const Icon(Icons.arrow_forward_ios_rounded), 
-    backgroundcolor: Colors.lightGreenAccent),
+    icon: const Icon(Icons.arrow_forward), 
+    backgroundcolor: Colors.green.shade300),
 
     DashboardSectionItemModel(title: 'SOBHA ELITE', 
-    icon: const Icon(Icons.arrow_forward_ios_rounded), 
-    backgroundcolor: Colors.pinkAccent),
+    icon: const Icon(Icons.arrow_forward), 
+    backgroundcolor: Colors.red.shade300),
     
     DashboardSectionItemModel(title: 'SPECIAL DAY', 
-    icon: const Icon(Icons.arrow_forward_ios_rounded), 
-    backgroundcolor: Colors.yellowAccent),
+    icon: const Icon(Icons.arrow_forward), 
+    backgroundcolor: Colors.blue.shade300),
     
     DashboardSectionItemModel(title: 'GIFT', 
-    icon: const Icon(Icons.arrow_forward_ios_rounded), 
-    backgroundcolor: Colors.orangeAccent)
+    icon: const Icon(Icons.arrow_forward), 
+    backgroundcolor: Colors.purple.shade300)
   ];
 
   @override
@@ -37,7 +40,7 @@ class _DashboardPageState extends State<DashboardPage> {
         backgroundColor: Colors.lightBlue,
       ),
       body: Container(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,13 +52,14 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
               ),
               const SizedBox(height: 16.0,),
-              const Text('Hello Rohan'),
-              const Text('What would you like to do today?'),
+               Text('Hello Rohan',style: TextStyle(fontSize: 20.sp),),
+               Text('What would you like to do today?',style: TextStyle(fontSize: 18.sp),),
               const SizedBox(height: 16.0,), 
               GridView.count(crossAxisCount: 2,
                  crossAxisSpacing: 4.0,  
                 mainAxisSpacing: 8.0,  
                 shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 children: List.generate(lstSection.length , (index) {
                   final model = lstSection[index];
                   return SizedBox(
@@ -71,11 +75,12 @@ class _DashboardPageState extends State<DashboardPage> {
                         children: [
                           Align(
                             alignment: Alignment.topLeft,
-                            child: Text(model.title,style: TextStyle(fontSize: 20.sp, color: Colors.white, fontWeight: FontWeight.w400),)),
-                            const SizedBox(height: 16.0,),
+                            child: Text(model.title,style: TextStyle(fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w400),)),
+                            const SizedBox(height: 8.0,),
                           Align(
                             alignment: Alignment.topLeft,
                             child: CircleAvatar(child: model.icon,
+                            radius: 16.0,
                             backgroundColor: Colors.white,
                             foregroundColor: Colors.black,),
                           )
@@ -83,6 +88,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       )
                 ));
                 }),),
+              const SizedBox(height: 16.0,),
+              Text('Weekly Deals',style: TextStyle(fontSize: 18.sp),),
               const SizedBox(height: 16.0,),
               SizedBox(
                 height: 30.h,
@@ -97,12 +104,17 @@ class _DashboardPageState extends State<DashboardPage> {
       bottomNavigationBar: BottomNavigationBar(
         
         onTap: (index){
-
+          if(index==3)
+          {
+            locator<NavigatorService>().navigatePush(widget: const SettingPage());
+          }
         },
         items: const [
-           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
+
         ],
       ),
     );
