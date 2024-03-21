@@ -1,10 +1,6 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tbreeapp/features/dashboard/dashboard_page.dart';
-import 'package:tbreeapp/features/gifts/gifts_page.dart';
 import '../../services/locator_service.dart';
 import '../../services/navigator_service.dart';
 import '../homepage/home_page.dart';
@@ -12,7 +8,6 @@ import '../homepage/home_page.dart';
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context,orientation,screenType){
@@ -31,7 +26,8 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(
             color: Colors.white,
             fontSize: 20.0
-          )
+          ),
+          elevation: 5.0
         ),
         bottomNavigationBarTheme:  BottomNavigationBarThemeData(
           selectedIconTheme: const IconThemeData(
@@ -53,9 +49,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-
-      home: const GiftsPage(),
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
       navigatorKey: locator<NavigatorService>().navigatorKey,
     );
     });

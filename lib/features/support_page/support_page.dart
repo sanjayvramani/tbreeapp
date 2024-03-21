@@ -20,8 +20,13 @@ class _SupportPageState extends State<SupportPage> {
       body: Padding(padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
+          Image.asset('assets/logo/tbree.png',
+                          width: 128,
+                          height: 128,
+                          cacheHeight: 128,
+                          cacheWidth: 128,) ,
           SizedBox(
-            height: 20.h,
+            height: 10.h,
           ),
            Text('Hello Rohan,',style: TextStyle(fontSize: 20.sp,color: Colors.white, fontWeight: FontWeight.bold),),
           const SizedBox(height: 16.0,),

@@ -24,26 +24,32 @@ class _DashboardPageState extends State<DashboardPage> {
   final List<DashboardSectionItemModel> lstSection = [
     DashboardSectionItemModel(title: 'SUPPORT', 
     icon: const Icon(Icons.arrow_forward), 
-    backgroundcolor: Colors.green.shade300),
+    backgroundcolor: Colors.green.shade300,
+    imageUrl: 'assets/images/support.png'),
 
     DashboardSectionItemModel(title: 'SOBHA ELITE', 
     icon: const Icon(Icons.arrow_forward), 
-    backgroundcolor: Colors.red.shade300),
+    backgroundcolor: Colors.red.shade300,
+    imageUrl: 'assets/images/elite.png'),
     
     DashboardSectionItemModel(title: 'SPECIAL DAY', 
     icon: const Icon(Icons.arrow_forward), 
-    backgroundcolor: Colors.blue.shade300),
+    backgroundcolor: Colors.blue.shade300,
+    imageUrl: 'assets/images/specialday.png'),
     
     DashboardSectionItemModel(title: 'GIFT', 
     icon: const Icon(Icons.arrow_forward), 
-    backgroundcolor: Colors.purple.shade300)
+    backgroundcolor: Colors.purple.shade300,
+    imageUrl: 'assets/images/gift.png')
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 5.0,
+        title: const Text('Home'),
       ),
       body: Container(
         padding: const EdgeInsets.all(8.0),
@@ -92,21 +98,33 @@ class _DashboardPageState extends State<DashboardPage> {
                             borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                             color: model.backgroundcolor
                           ),
-                    child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
+                    child: Stack(
+                      children: [
+                        Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(model.title,style: TextStyle(fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w400),)),
+                                  const SizedBox(height: 8.0,),
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: CircleAvatar(radius: 16.0,
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.black,child: model.icon,),
+                                )
+                              ],
+                            ),
                             Align(
-                              alignment: Alignment.topLeft,
-                              child: Text(model.title,style: TextStyle(fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w400),)),
-                              const SizedBox(height: 8.0,),
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: CircleAvatar(radius: 16.0,
-                              backgroundColor: Colors.white,
-                              foregroundColor: Colors.black,child: model.icon,),
+                              alignment: Alignment.bottomRight,
+                              child: Image.asset(model.imageUrl,
+                              height: 116,
+                              width: 116,
+                              cacheHeight: 116,
+                              cacheWidth: 116,),
                             )
-                          ],
-                        )
+                      ],
+                    )
                                     )),
                   );
                 }),),

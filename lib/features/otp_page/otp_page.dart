@@ -23,6 +23,12 @@ class _OtpPageState extends State<OtpPage> {
           mainAxisAlignment: MainAxisAlignment.center,
          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset('assets/logo/tbree.png',
+                          width: 128,
+                          height: 128,
+                          cacheHeight: 128,
+                          cacheWidth: 128,) ,
+            const SizedBox(height: 150.0,),
              Align(
               alignment: Alignment.center,
               child: Text('Please enter OTP here that is to your',style: TextStyle(fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w400))),

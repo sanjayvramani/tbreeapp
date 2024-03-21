@@ -45,6 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           Text('REAL ESTATE', style: TextStyle(fontSize: 20.sp, color: Colors.white, fontWeight: FontWeight.bold)),
                           Text('COMPANY', style: TextStyle(fontSize: 20.sp, color: Colors.white, fontWeight: FontWeight.bold)),
                           const SizedBox(width: 36.0, child:  Divider(color: Colors.white, thickness: 4.0,)),
+                          
+                           Image.asset('assets/logo/tbree.png',
+                          width: 128,
+                          height: 128,
+                          cacheHeight: 128,
+                          cacheWidth: 128,) 
                           //const Icon(Icons.home,size: 64.0,)
                         ],
                       ),
