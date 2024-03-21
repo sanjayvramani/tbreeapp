@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tbreeapp/features/contact_us/contact_us_page.dart';
 import 'package:tbreeapp/features/elite_program/elite_program_widget.dart';
@@ -60,7 +61,10 @@ class _DashboardPageState extends State<DashboardPage> {
                SizedBox(
                 height: 30.h,
                 child: Container(
-                  color: Colors.black,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(image: AssetImage('assets/images/building.png'),fit: BoxFit.fill)
+                  ),
+                  //color: Colors.black,
                 ),
               ),
               const SizedBox(height: 16.0,),
@@ -133,9 +137,44 @@ class _DashboardPageState extends State<DashboardPage> {
               const SizedBox(height: 16.0,),
               SizedBox(
                 height: 30.h,
-                child: Container(
-                  color: Colors.pinkAccent,
-                ),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                 // shrinkWrap: true,
+                  itemCount: 4,
+                  itemBuilder: (_,index){
+                  return Padding(
+                    padding: const EdgeInsets.only(right:8.0),
+                    child: SizedBox(
+                      //color: Colors.pinkAccent,
+                      width: 400,
+                      child: Row(
+                        children: [
+                          Container(width: 150,
+                          color: Colors.black,
+                          child: const Center(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('ONE',style: TextStyle(color: Colors.white,fontSize: 20.0),),
+                                Text('FREE',style: TextStyle(color: Colors.white,fontSize: 20.0),),
+                                Text('YOGA',style: TextStyle(color: Colors.white,fontSize: 20.0),),
+                                Text('CLASS',style: TextStyle(color: Colors.white,fontSize: 20.0),),
+                                Text('AT YOUR',style: TextStyle(color: Colors.white,fontSize: 20.0),),
+                                Text('DOORSTEP',style: TextStyle(color: Colors.white,fontSize: 20.0),),
+                                ],
+                            ),
+                          ),
+                          ),
+                          const SizedBox(
+                     // color: Colors.pinkAccent,
+                      width: 250,
+                      child:  Image(image:  AssetImage('assets/images/yoga.png'),fit: BoxFit.cover,))
+                        ],
+                      ),
+                    ),
+                  );
+                }),
               ),
             ],
           ),
