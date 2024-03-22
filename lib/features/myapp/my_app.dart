@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tbreeapp/features/special_day/special_day_page.dart';
 import '../../services/locator_service.dart';
 import '../../services/navigator_service.dart';
-import '../homepage/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const SpecialDayPage(),
       navigatorKey: locator<NavigatorService>().navigatorKey,
     );
     });
