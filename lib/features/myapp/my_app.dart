@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tbreeapp/features/challenges/challenge_questions_page.dart';
+import 'package:tbreeapp/features/challenges/challenges_page.dart';
 import 'package:tbreeapp/features/special_day/special_day_page.dart';
 import '../../services/locator_service.dart';
 import '../../services/navigator_service.dart';
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: const SpecialDayPage(),
+      home: const ChallengeQuestionsPage(),
       navigatorKey: locator<NavigatorService>().navigatorKey,
     );
     });

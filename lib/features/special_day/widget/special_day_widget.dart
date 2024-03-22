@@ -35,9 +35,6 @@ class _SpecialDayWidgetState extends State<SpecialDayWidget> {
             ),
           ),
           const SizedBox(height: 16.0,),
-
-
-
            Center(
              child: Container(
                 decoration: BoxDecoration(
