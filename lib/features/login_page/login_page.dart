@@ -28,11 +28,11 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             
             children: [
-              Image.asset('assets/logo/tbree.png',
-                          width: 128,
-                          height: 128,
-                          cacheHeight: 128,
-                          cacheWidth: 128,) ,
+              Image.asset('assets/logo/logo.png',
+                          width: 96,
+                          height: 96,
+                          cacheHeight: 96,
+                          cacheWidth: 96,) ,
               const SizedBox(
                 width: 60.0,
                 child: Divider(

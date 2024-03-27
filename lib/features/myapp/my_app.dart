@@ -6,6 +6,7 @@ import 'package:tbreeapp/features/challenges/challenges_page.dart';
 import 'package:tbreeapp/features/special_day/special_day_page.dart';
 import '../../services/locator_service.dart';
 import '../../services/navigator_service.dart';
+import '../homepage/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: const ChallengeQuestionsPage(),
+      home:  const MyHomePage(title: 'App',),
       navigatorKey: locator<NavigatorService>().navigatorKey,
     );
     });

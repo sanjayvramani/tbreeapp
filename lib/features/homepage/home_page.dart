@@ -46,11 +46,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           Text('COMPANY', style: TextStyle(fontSize: 20.sp, color: Colors.white, fontWeight: FontWeight.bold)),
                           const SizedBox(width: 36.0, child:  Divider(color: Colors.white, thickness: 4.0,)),
                           
-                           Image.asset('assets/logo/tbree.png',
-                          width: 128,
-                          height: 128,
-                          cacheHeight: 128,
-                          cacheWidth: 128,) 
+                           Image.asset('assets/logo/logo.png',
+                          width: 96,
+                          height: 96,
+                          cacheHeight: 96,
+                          cacheWidth: 96,) 
                           //const Icon(Icons.home,size: 64.0,)
                         ],
                       ),
