@@ -22,26 +22,36 @@ class _DashboardPageState extends State<DashboardPage> {
 
   int _currentIndex = 0;
 
+  var images_bottom = <String>[
+    "assets/image/demo-bottom-1.png",
+    "assets/image/demo-bottom-2.png",
+    "assets/image/demo-bottom-3.png",
+    "assets/image/demo-bottom-4.png",
+    "assets/image/demo-bottom-5.png",
+  ];
+
+  final PageController _pageController =  PageController(viewportFraction: 0.7);
+
   final List<DashboardSectionItemModel> lstSection = [
     DashboardSectionItemModel(title: 'SUPPORT', 
     icon: const Icon(Icons.arrow_forward), 
     backgroundcolor: Colors.green.shade300,
-    imageUrl: 'assets/images/support.png'),
+    imageUrl: 'assets/image/Support.png'),
 
     DashboardSectionItemModel(title: 'SOBHA ELITE', 
     icon: const Icon(Icons.arrow_forward), 
     backgroundcolor: Colors.red.shade300,
-    imageUrl: 'assets/images/elite.png'),
+    imageUrl: 'assets/image/shobha-plus.png'),
     
     DashboardSectionItemModel(title: 'SPECIAL DAY', 
     icon: const Icon(Icons.arrow_forward), 
     backgroundcolor: Colors.blue.shade300,
-    imageUrl: 'assets/images/specialday.png'),
+    imageUrl: 'assets/image/Events.png'),
     
     DashboardSectionItemModel(title: 'GIFT', 
     icon: const Icon(Icons.arrow_forward), 
     backgroundcolor: Colors.purple.shade300,
-    imageUrl: 'assets/images/gift.png')
+    imageUrl: 'assets/image/Gift.png')
   ];
 
   @override
@@ -100,7 +110,9 @@ class _DashboardPageState extends State<DashboardPage> {
                       padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                             borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                            color: model.backgroundcolor
+                            image: DecorationImage(image: AssetImage(model.imageUrl),fit: BoxFit.cover)
+
+                            //color: model.backgroundcolor
                           ),
                     child: Stack(
                       children: [
@@ -119,14 +131,14 @@ class _DashboardPageState extends State<DashboardPage> {
                                 )
                               ],
                             ),
-                            Align(
+                            /* Align(
                               alignment: Alignment.bottomRight,
                               child: Image.asset(model.imageUrl,
                               height: 116,
                               width: 116,
                               cacheHeight: 116,
                               cacheWidth: 116,),
-                            )
+                            ) */
                       ],
                     )
                                     )),
@@ -137,7 +149,28 @@ class _DashboardPageState extends State<DashboardPage> {
               const SizedBox(height: 16.0,),
               SizedBox(
                 height: 30.h,
-                child: ListView.builder(
+                child: PageView(
+                  controller: _pageController,
+                  children: List.generate(images_bottom.length, (index) {
+                    final imagePath = images_bottom[index];
+
+                    return Transform.translate(offset: Offset(0-16.w, 0.0),
+                    child: Stack(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 1.5.w),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:  const BorderRadius.all(Radius.circular(10.0)),
+                              image: DecorationImage(image: AssetImage(imagePath),fit: BoxFit.fill)
+                            ),
+                          ),
+                        )
+                      ],
+                    ),);
+                  }),
+                ),
+                /* child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                  // shrinkWrap: true,
@@ -174,7 +207,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       ),
                     ),
                   );
-                }),
+                }), */
               ),
             ],
           ),
