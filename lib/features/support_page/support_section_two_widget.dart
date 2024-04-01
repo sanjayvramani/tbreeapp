@@ -54,7 +54,7 @@ class _SupportSectionTwoWidgetState extends State<SupportSectionTwoWidget> {
           height: 96.0,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 64.0),
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -77,7 +77,7 @@ class _SupportSectionTwoWidgetState extends State<SupportSectionTwoWidget> {
               const SizedBox(
                 height: 16.0,
               ),
-              SectionItemWidget(title: 'A. I want help with legal documents', onTap: () {
+              SectionItemWidget(title: 'C. I want help with legal documents', onTap: () {
                 _openSupportChatPage();
               }),
               const SizedBox(

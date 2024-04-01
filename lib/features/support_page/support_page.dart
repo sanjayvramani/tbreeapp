@@ -31,12 +31,13 @@ class _SupportPageState extends State<SupportPage> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            const SizedBox(height: 48.0,),
             Image.asset(
-              'assets/logo/tbree.png',
-              width: 128,
-              height: 128,
-              cacheHeight: 128,
-              cacheWidth: 128,
+              'assets/logo/logo.png',
+              width: 96,
+              height: 96,
+              cacheHeight: 96,
+              cacheWidth: 96,
             ),
             SizedBox(
               height: 10.h,

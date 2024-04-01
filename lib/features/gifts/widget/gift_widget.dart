@@ -12,7 +12,7 @@ class GiftWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        locator<NavigatorService>().navigatePush(widget: GiftIntroPage(backgroundColor: model.backgroundColor));
+        locator<NavigatorService>().navigatePush(widget: GiftIntroPage(model: model,));
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom:  32.0),

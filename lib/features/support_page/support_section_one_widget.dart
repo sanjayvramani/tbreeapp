@@ -55,7 +55,7 @@ class _SupportSectionOneWidgetState extends State<SupportSectionOneWidget> {
           height: 96.0,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 64.0),
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -72,14 +72,14 @@ class _SupportSectionOneWidgetState extends State<SupportSectionOneWidget> {
               const SizedBox(
                 height: 16.0,
               ),
-              SectionItemWidget(title: 'A. Handover Team', onTap: () {
+              SectionItemWidget(title: 'B. Handover Team', onTap: () {
                 _goToNextWidget();
               }),
               const SizedBox(
                 height: 16.0,
               ),
               SectionItemWidget(
-                  title: 'A. Property Management Team', onTap: () {
+                  title: 'C. Property Management Team', onTap: () {
                     _goToNextWidget();
                   }),
               const SizedBox(

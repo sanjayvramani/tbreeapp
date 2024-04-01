@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:tbreeapp/features/gifts/model/gift_model.dart';
 
 class GiftIntroPage extends StatefulWidget {
-  final Color backgroundColor;
-  const GiftIntroPage({super.key,required this.backgroundColor});
+  final GiftModel model;
+  const GiftIntroPage({super.key,required this.model});
 
   @override
   State<GiftIntroPage> createState() => _GiftIntroPageState();
@@ -12,9 +14,9 @@ class _GiftIntroPageState extends State<GiftIntroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: widget.backgroundColor,
+      backgroundColor: widget.model.backgroundColor,
       appBar: AppBar(
-        backgroundColor: widget.backgroundColor,
+        backgroundColor: widget.model.backgroundColor,
       ),
       body:  Padding(padding:  const EdgeInsets.all(16.0),
       child: Stack(
@@ -25,6 +27,7 @@ class _GiftIntroPageState extends State<GiftIntroPage> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                
                 const Text('FREE',style: TextStyle(
                             color: Colors.white,
                             fontSize: 32.0
@@ -83,7 +86,16 @@ class _GiftIntroPageState extends State<GiftIntroPage> {
                  const SizedBox(height: 64.0,)
               ],
             ),
-          )
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Image.asset(widget.model.imagePath,
+            cacheHeight: 256,
+                     // cacheWidth: 256,
+                     // width: 256,
+            height: 256,),
+          ),
+                
         ],
       ),),
     );

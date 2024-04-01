@@ -30,7 +30,7 @@ class ChallengesPage extends StatelessWidget {
                   topLeft: Radius.circular(16),
                   topRight: Radius.circular(16),
                 ),
-                color: Colors.black,
+               // color: Colors.black,
               ),
               child:  Stack(
                 children: [
@@ -47,39 +47,48 @@ class ChallengesPage extends StatelessWidget {
                             right: Radius.circular(16),
                           )
                         ),
-                        child: const Column(
-                          children: [
-                            Align(
-                        alignment: Alignment.centerLeft,
-                        child:  Padding(
-                          padding: EdgeInsets.only(left:32.0),
-                          child: Text('Who Am I?',style: TextStyle(color: Colors.white,fontSize: 24.0),),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child:  Padding(
-                          padding: EdgeInsets.only(bottom: 32.0,left: 32.0),
-                          child: Row(
-                            children: [
-                              Text('Know more',style: TextStyle(color: Colors.yellowAccent,fontSize: 24.0),),
-                              SizedBox(width: 8.0,),
-                              Icon(Icons.arrow_forward_ios,color: Colors.yellowAccent)
-                            ],
-                          ),
-                        ),
-                      )
-                          ],
-                        ),
+                        //child: const ,
+                        
                       ),
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional.center,
+                    alignment: AlignmentDirectional.topCenter,
                     child: Image.asset('assets/image/demo-1.png',
                     height: 20.h,
                     width: 20.h,),
                   ),
+                  const Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Align(
+                          alignment: Alignment.centerLeft,
+                          child:  Padding(
+                            padding: EdgeInsets.only(left:32.0),
+                            child: Text('Who Am I?',style: TextStyle(color: Colors.white,fontSize: 32.0,
+                            fontWeight: FontWeight.w600),),
+                          ),
+                                                ),
+                                                 SizedBox(height: 96.0,),
+                          
+                                                Align(
+                          alignment: Alignment.bottomLeft,
+                          child:  Padding(
+                            padding: EdgeInsets.only(bottom: 96.0,left: 32.0),
+                            child: Row(
+                              children: [
+                                Text('Know more',style: TextStyle(color: Colors.yellowAccent,fontSize: 16.0),),
+                                SizedBox(width: 8.0,),
+                                Icon(Icons.arrow_forward_ios,color: Colors.yellowAccent)
+                              ],
+                            ),
+                          ),
+                                                )
+                            ],
+                          )
+                  )
                 ],
               ),
 

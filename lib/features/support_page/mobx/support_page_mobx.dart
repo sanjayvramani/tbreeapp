@@ -11,5 +11,5 @@ class  SupportPageMobx = _SupportPageMobx with _$SupportPageMobx;
 abstract class _SupportPageMobx with Store
 {
   @observable
-  int supportsectionindex = 0;
+  int supportsectionindex = 1;
 }

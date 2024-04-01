@@ -9,6 +9,7 @@ import 'package:tbreeapp/features/support_page/support_page.dart';
 import 'package:tbreeapp/services/navigator_service.dart';
 
 import '../../services/locator_service.dart';
+import '../challenges/challenges_page.dart';
 import 'model/dashboard_section_item_model.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -218,7 +219,7 @@ class _DashboardPageState extends State<DashboardPage> {
         onTap: (index){
           if(index==4)
           {
-            locator<NavigatorService>().navigatePush(widget: const SettingPage());
+            locator<NavigatorService>().navigatePush(widget: const ChallengesPage());
           }
           else if(index==3)
           {
@@ -243,7 +244,7 @@ class _DashboardPageState extends State<DashboardPage> {
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
-          BottomNavigationBarItem(icon: Icon(Icons.monetization_on_sharp), label: 'Rewards'),
+          BottomNavigationBarItem(icon: Icon(Icons.monetization_on_sharp), label: 'Challenge'),
 
         ],
       ),
