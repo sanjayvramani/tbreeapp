@@ -216,8 +216,11 @@ class _DashboardPageState extends State<DashboardPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index){
-          
-          if(index==3)
+          if(index==4)
+          {
+            locator<NavigatorService>().navigatePush(widget: const SettingPage());
+          }
+          else if(index==3)
           {
             locator<NavigatorService>().navigatePush(widget: const SettingPage());
           }
@@ -228,11 +231,11 @@ class _DashboardPageState extends State<DashboardPage> {
           else
           {
             if(_currentIndex!=index)
-          {
-            setState(() {
-              _currentIndex = index;
-            });
-          }
+            {
+              setState(() {
+                _currentIndex = index;
+              });
+            }
           }
         },
         items: const [
@@ -240,6 +243,7 @@ class _DashboardPageState extends State<DashboardPage> {
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
+          BottomNavigationBarItem(icon: Icon(Icons.monetization_on_sharp), label: 'Rewards'),
 
         ],
       ),

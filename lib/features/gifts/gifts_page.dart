@@ -21,15 +21,18 @@ class _GiftsPageState extends State<GiftsPage> {
 
     lstModel.add(GiftModel(title: '7 DAYS CULT',
      subtitle: 'FREE', 
-     backgroundColor: Colors.red.shade300));
+     backgroundColor: Colors.red.shade300,
+     imagePath: "assets/image/cult.png"));
 
      lstModel.add(GiftModel(title: 'UDEMY COURSE',
      subtitle: 'FREE', 
-     backgroundColor: Colors.blue.shade300));
+     backgroundColor: Colors.blue.shade300,
+     imagePath: "assets/image/Udemycourse.png"));
 
      lstModel.add(GiftModel(title: 'MOVIE TICKET',
      subtitle: 'FREE', 
-     backgroundColor: Colors.green.shade300));
+     backgroundColor: Colors.green.shade300,
+     imagePath: "assets/image/movieticket.png"));
   }
 
   @override
@@ -51,9 +54,9 @@ class _GiftsPageState extends State<GiftsPage> {
             const SizedBox(height: 32.0,),
             ListView.builder(
                 itemCount: lstModel.length,
-                 physics: const NeverScrollableScrollPhysics(),
-  shrinkWrap: true,
-  scrollDirection: Axis.vertical,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
                 itemBuilder: (_,index){
                   return GiftWidget(model: lstModel[index]);
                 })

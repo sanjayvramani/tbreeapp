@@ -23,6 +23,9 @@ class GiftWidget extends StatelessWidget {
             child: Stack(
               children: [
                 Align(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset(model.imagePath)),
+                Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(padding: const EdgeInsets.only(left: 32.0),
                   child: Column(
