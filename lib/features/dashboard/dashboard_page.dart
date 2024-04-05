@@ -6,7 +6,10 @@ import 'package:tbreeapp/features/contact_us/contact_us_page.dart';
 import 'package:tbreeapp/features/elite_program/elite_program_widget.dart';
 import 'package:tbreeapp/features/gifts/gifts_page.dart';
 import 'package:tbreeapp/features/project/project_page.dart';
+import 'package:tbreeapp/features/refer/refer_page.dart';
+import 'package:tbreeapp/features/reward/reward_page.dart';
 import 'package:tbreeapp/features/setting_page/setting_page.dart';
+import 'package:tbreeapp/features/special_day/special_day_page.dart';
 import 'package:tbreeapp/features/support_page/support_page.dart';
 import 'package:tbreeapp/services/navigator_service.dart';
 
@@ -122,6 +125,10 @@ class _DashboardPageState extends State<DashboardPage> {
                       else if(index==1)
                       {
                         locator<NavigatorService>().navigatePush(widget: const EliteProgramPage());
+                      }
+                      else if(index==2)
+                      {
+                        locator<NavigatorService>().navigatePush(widget: const SpecialDayPage());
                       }
                       else if(index==3)
                       {
@@ -241,17 +248,21 @@ class _DashboardPageState extends State<DashboardPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index){
-          if(index==4)
+          if(index==1)
           {
             locator<NavigatorService>().navigatePush(widget: const ChallengesPage());
           }
           else if(index==3)
           {
-            locator<NavigatorService>().navigatePush(widget: const SettingPage());
+            locator<NavigatorService>().navigatePush(widget: const RewardPage());
           }
           else if(index==2)
           {
-            locator<NavigatorService>().navigatePush(widget: const ContactUsPage());
+            locator<NavigatorService>().navigatePush(widget: const ReferPage());
+          }
+          else if(index==4)
+          {
+            locator<NavigatorService>().navigatePush(widget: const SettingPage());
           }
           else
           {
@@ -265,10 +276,10 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
-          BottomNavigationBarItem(icon: Icon(Icons.monetization_on_sharp), label: 'Challenge'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Challenge'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Referral'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Rewards'),
+          BottomNavigationBarItem(icon: Icon(Icons.monetization_on_sharp), label: 'More'),
 
         ],
       ),

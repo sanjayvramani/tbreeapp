@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tbreeapp/features/support_page/support_chat_page.dart';
 import 'package:tbreeapp/services/navigator_service.dart';
-
 import '../../services/locator_service.dart';
-import 'mobx/support_page_mobx.dart';
 import 'widget/section_item_widget.dart';
 
 class SupportSectionTwoWidget extends StatefulWidget {
@@ -17,7 +15,7 @@ class SupportSectionTwoWidget extends StatefulWidget {
 
 class _SupportSectionTwoWidgetState extends State<SupportSectionTwoWidget> {
   
-  final SupportPageMobx _supportPageMobx = locator<SupportPageMobx>();
+ // final SupportPageMobx _supportPageMobx = locator<SupportPageMobx>();
   
   @override
   Widget build(BuildContext context) {
