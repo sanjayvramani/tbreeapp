@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tbreeapp/features/support_page/mobx/support_page_mobx.dart';
-import 'package:tbreeapp/features/support_page/support_chat_page.dart';
 import 'package:tbreeapp/features/support_page/support_section_one_widget.dart';
 import 'package:tbreeapp/features/support_page/support_section_two_widget.dart';
 import 'package:tbreeapp/services/locator_service.dart';

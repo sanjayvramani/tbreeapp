@@ -1,9 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tbreeapp/features/contact_us/contact_us_page.dart';
 import 'package:tbreeapp/features/elite_program/elite_program_widget.dart';
 import 'package:tbreeapp/features/gifts/gifts_page.dart';
+import 'package:tbreeapp/features/project/project_page.dart';
 import 'package:tbreeapp/features/setting_page/setting_page.dart';
 import 'package:tbreeapp/features/support_page/support_page.dart';
 import 'package:tbreeapp/services/navigator_service.dart';
@@ -22,6 +24,13 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
 
   int _currentIndex = 0;
+
+  var buidlingImageList = <String>[
+    'assets/image/building1.jpg',
+    'assets/image/building2.jpg',
+    'assets/image/building3.jpg',
+    'assets/image/building4.jpg'
+  ];
 
   var images_bottom = <String>[
     "assets/image/demo-bottom-1.png",
@@ -71,12 +80,27 @@ class _DashboardPageState extends State<DashboardPage> {
             children: [
                SizedBox(
                 height: 30.h,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(image: AssetImage('assets/images/building.png'),fit: BoxFit.fill)
+                child: CarouselSlider(items: buidlingImageList.map((imagePath) =>  GestureDetector(
+                  onTap: (){
+                    locator<NavigatorService>().navigatePush(widget: ProjectPage(imagePath: imagePath));
+                  },
+                  child: Container(
+                    decoration:  BoxDecoration(
+                      image: DecorationImage(image: AssetImage(imagePath),fit: BoxFit.fill)
+                    ),
+                    //color: Colors.black,
                   ),
-                  //color: Colors.black,
-                ),
+                )).toList(), 
+                options: CarouselOptions(
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  viewportFraction: 1.0,
+                  aspectRatio: 1.75/1,
+                  autoPlay: true,
+                  reverse: false,
+                  autoPlayInterval: const Duration(seconds: 3),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800)
+                )),
               ),
               const SizedBox(height: 16.0,),
                Text('Hello Rohan',style: TextStyle(fontSize: 20.sp),),
