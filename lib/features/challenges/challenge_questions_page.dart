@@ -1,18 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:tbreeapp/features/challenges/mobx/challenges_mobx.dart';
 import 'package:tbreeapp/features/challenges/widget/question_answer_option_widget.dart';
 import 'package:tbreeapp/features/challenges/widget/question_navigator_widget.dart';
 import 'package:tbreeapp/features/challenges/widget/question_widget.dart';
 
-class ChallengeQuestionsPage extends StatelessWidget {
+class ChallengeQuestionsPage extends StatefulWidget {
   const ChallengeQuestionsPage({super.key});
+
+  @override
+  State<ChallengeQuestionsPage> createState() => _ChallengeQuestionsPageState();
+}
+
+class _ChallengeQuestionsPageState extends State<ChallengeQuestionsPage> {
+
+
+  final ChallengesMobx _challengesMobx = ChallengesMobx();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: const Stack(
+      appBar: AppBar(
+        title: Observer(builder: (_){
+          return Text('${_challengesMobx.currentIndex}/7');
+        }),
+      ),
+      body:  Stack(
       children: [
-        Padding(padding:  EdgeInsets.only(
+        const Padding(padding:  EdgeInsets.only(
           top: 16.0,
           left: 16.0,
           right: 16.0,
@@ -30,7 +45,7 @@ class ChallengeQuestionsPage extends StatelessWidget {
         ),),
          Align(
           alignment: Alignment.bottomCenter,
-          child: QuestionNavigatorWidget(),
+          child: QuestionNavigatorWidget(mobx: _challengesMobx,),
         )
       ],
     ),

@@ -264,6 +264,10 @@ class _DashboardPageState extends State<DashboardPage> {
           {
             locator<NavigatorService>().navigatePush(widget: const SettingPage());
           }
+          else if(index==5)
+          {
+            locator<NavigatorService>().navigatePush(widget: const ContactUsPage());
+          }
           else
           {
             if(_currentIndex!=index)
@@ -276,10 +280,11 @@ class _DashboardPageState extends State<DashboardPage> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Challenge'),
+          BottomNavigationBarItem(icon: Icon(Icons.workspace_premium_outlined), label: 'Challenge'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Referral'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Rewards'),
-          BottomNavigationBarItem(icon: Icon(Icons.monetization_on_sharp), label: 'More'),
+          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Rewards'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+          BottomNavigationBarItem(icon: Icon(Icons.contact_support), label: 'Contact'),
 
         ],
       ),

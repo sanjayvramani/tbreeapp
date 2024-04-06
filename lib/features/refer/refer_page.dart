@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tbreeapp/features/refer/new_refer_page.dart';
 import 'package:tbreeapp/features/refer/widget/refer_person_widget.dart';
+import 'package:tbreeapp/services/locator_service.dart';
+import 'package:tbreeapp/services/navigator_service.dart';
 
 import 'model/refer_person_model.dart';
 
@@ -16,11 +20,11 @@ class _ReferPageState extends State<ReferPage> {
 
 
   final List<ReferPersonModel> lstPerson = [
-    ReferPersonModel(name: 'Person 1', status: 'Pending', percentage: 0.0),
-    ReferPersonModel(name: 'Person 2', status: 'Visit Done', percentage: 0.0),
-    ReferPersonModel(name: 'Person 3', status: 'On Hault', percentage: 0.0),
+    ReferPersonModel(name: 'Person 1', status: 'Pending', percentage: 25.0),
+    ReferPersonModel(name: 'Person 2', status: 'Visit Done', percentage: 100.0),
+    ReferPersonModel(name: 'Person 3', status: 'On Hault', percentage: 70.0),
     ReferPersonModel(name: 'Person 4', status: 'Canceled', percentage: 0.0),
-    ReferPersonModel(name: 'Person 5', status: 'Running', percentage: 0.0)
+    ReferPersonModel(name: 'Person 5', status: 'Running', percentage: 50.0)
   ];
 
   @override
@@ -44,22 +48,27 @@ class _ReferPageState extends State<ReferPage> {
                   color: Colors.blueAccent
                 )
               ),
-              child:  const Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.blueAccent,
-                      child: Icon(Icons.add),
-                    ),
-                    SizedBox(width: 24.0,),
-                    Text('Refer New Person',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white
-                    ),)
-                  ],
+              child:   Center(
+                child: GestureDetector(
+                  onTap: (){
+                    locator<NavigatorService>().navigatePush(widget: const NewReferPage());
+                  },
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.blueAccent,
+                        child: Icon(Icons.add),
+                      ),
+                      SizedBox(width: 24.0,),
+                      Text('Refer New Person',
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        color: Colors.white
+                      ),)
+                    ],
+                  ),
                 ),
               ),
             ),

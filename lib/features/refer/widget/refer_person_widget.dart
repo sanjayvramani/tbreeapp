@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:tbreeapp/features/refer/model/refer_person_model.dart';
+import 'package:tbreeapp/features/refer/refer_details_page.dart';
+import 'package:tbreeapp/services/navigator_service.dart';
+
+import '../../../services/locator_service.dart';
 
 class ReferPersonWidget extends StatelessWidget {
   final ReferPersonModel model;
@@ -10,6 +14,9 @@ class ReferPersonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
         child: ListTile(
+          onTap: (){
+            locator<NavigatorService>().navigatePush(widget: ReferDetailsPage(model: model));
+          },
           leading: SizedBox(
           height: 48.0,
           width: 48.0,
@@ -17,7 +24,7 @@ class ReferPersonWidget extends StatelessWidget {
               radius: 24.0,
               lineWidth: 4.0,
               animation: true,
-              percent: 0.7,
+              percent: model.percentage/100.0,
               center: Text(model.percentage.toString()),
               progressColor: Colors.blue.shade900,
             ),

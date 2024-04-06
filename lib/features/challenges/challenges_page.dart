@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tbreeapp/features/challenges/challenge_questions_page.dart';
+import 'package:tbreeapp/services/navigator_service.dart';
+
+import '../../services/locator_service.dart';
 
 class ChallengesPage extends StatelessWidget {
   const ChallengesPage({super.key});
@@ -58,12 +63,12 @@ class ChallengesPage extends StatelessWidget {
                     height: 20.h,
                     width: 20.h,),
                   ),
-                  const Align(
+                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Align(
+                              const Align(
                           alignment: Alignment.centerLeft,
                           child:  Padding(
                             padding: EdgeInsets.only(left:32.0),
@@ -71,18 +76,23 @@ class ChallengesPage extends StatelessWidget {
                             fontWeight: FontWeight.w600),),
                           ),
                                                 ),
-                                                 SizedBox(height: 96.0,),
+                                                 const SizedBox(height: 96.0,),
                           
                                                 Align(
                           alignment: Alignment.bottomLeft,
                           child:  Padding(
-                            padding: EdgeInsets.only(bottom: 96.0,left: 32.0),
-                            child: Row(
-                              children: [
-                                Text('Know more',style: TextStyle(color: Colors.yellowAccent,fontSize: 16.0),),
-                                SizedBox(width: 8.0,),
-                                Icon(Icons.arrow_forward_ios,color: Colors.yellowAccent)
-                              ],
+                            padding: const EdgeInsets.only(bottom: 96.0,left: 32.0),
+                            child: GestureDetector(
+                              onTap: (){
+                                locator<NavigatorService>().navigatePush(widget: const ChallengeQuestionsPage());
+                              },
+                              child: const Row(
+                                children: [
+                                  Text('Know more',style: TextStyle(color: Colors.yellowAccent,fontSize: 16.0),),
+                                  SizedBox(width: 8.0,),
+                                  Icon(Icons.arrow_forward_ios,color: Colors.yellowAccent)
+                                ],
+                              ),
                             ),
                           ),
                                                 )

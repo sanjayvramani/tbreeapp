@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tbreeapp/features/challenges/mobx/challenges_mobx.dart';
 
 class QuestionNavigatorWidget extends StatelessWidget {
-  const QuestionNavigatorWidget({super.key});
+
+  final ChallengesMobx mobx;
+  const QuestionNavigatorWidget({super.key,required this.mobx});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +13,7 @@ class QuestionNavigatorWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         OutlinedButton(onPressed: (){
-
+          mobx.changeCurrentIndex(mobx.currentIndex-1);
         },
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.white,
@@ -19,7 +22,7 @@ class QuestionNavigatorWidget extends StatelessWidget {
         child: const Text('< Back')),
 
         OutlinedButton(onPressed: (){
-
+          mobx.changeCurrentIndex(mobx.currentIndex+1);
         }, 
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.white,
